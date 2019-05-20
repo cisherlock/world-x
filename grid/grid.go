@@ -62,6 +62,7 @@ func get_random_number(min int, max int, not_in []int) int {
 	for k := range not_in {			// Return default if not_in contains entire range
 		if (not_in[k] >= min) && (not_in[k] <= max) { can_create++ }
 	}
+
 	if can_create >= max { return r_num }	
 
 

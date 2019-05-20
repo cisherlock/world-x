@@ -18,14 +18,12 @@ type Loader struct {
 func (e Loader) Search_City(city_name string) (*City, bool) {
 
 	if city_name != "" {
-
 		for i := range e.Cities {
 			if e.Cities[i].Name == city_name {
 				return &e.Cities[i], true
 				break
-
 			}
-
+			
 		}
 
 	}
@@ -66,7 +64,7 @@ func (e *Loader) Load(data_file string) bool {
 	for _, line := range txt_lines {
 		if strings.TrimSpace(line) == "" { continue }
 
-		name_rex, _ := regexp.Compile("^[A-Za-z\\-]+")
+		name_rex, _ := regexp.Compile("^[A-Za-z\\-]+")				// File format is assumed.
 		north_rex, _ := regexp.Compile("\\snorth=[A-Za-z\\-]+")
 		east_rex, _ := regexp.Compile("\\seast=[A-Za-z\\-]+")
 		south_rex, _ := regexp.Compile("\\ssouth=[A-Za-z\\-]+")

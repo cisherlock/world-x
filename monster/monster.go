@@ -24,36 +24,32 @@ func (e Monster) Alive() bool {
 
 func (e Monster) Can_Move_North() bool {
 
-	if (e.Is_Stuck) { return false }
-	if (e.Health < e.Min_Health) { return false }
+	if !(e.Alive()) || e.Is_Stuck { return false }
 	if e.Current_City.North_City_Data == nil { return false }
-	return (e.Current_City.North_City_Data.Health >= e.Current_City.North_City_Data.Min_Health)
+	return e.Current_City.North_City_Data.Alive()
 
 }
 
 func (e Monster) Can_Move_East() bool {
 
-	if (e.Is_Stuck) { return false }
-	if (e.Health < e.Min_Health) { return false }
+	if !(e.Alive()) || e.Is_Stuck { return false }
 	if e.Current_City.East_City_Data == nil { return false }
-	return (e.Current_City.East_City_Data.Health >= e.Current_City.East_City_Data.Min_Health)
+	return e.Current_City.East_City_Data.Alive()
 
 }
 
 func (e Monster) Can_Move_South() bool {
 
-	if (e.Is_Stuck) { return false }
-	if (e.Health < e.Min_Health) { return false }
+	if !(e.Alive()) || e.Is_Stuck { return false }
 	if e.Current_City.South_City_Data == nil { return false }
-	return (e.Current_City.South_City_Data.Health >= e.Current_City.South_City_Data.Min_Health)
+	return e.Current_City.South_City_Data.Alive()
 
 }
 
 func (e Monster) Can_Move_West() bool {
 
-	if (e.Is_Stuck) { return false }
-	if (e.Health < e.Min_Health) { return false }
+	if !(e.Alive()) || e.Is_Stuck { return false }
 	if e.Current_City.West_City_Data == nil { return false }
-	return (e.Current_City.West_City_Data.Health >= e.Current_City.West_City_Data.Min_Health)
+	return e.Current_City.West_City_Data.Alive()
 
 }
