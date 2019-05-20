@@ -70,37 +70,37 @@ func (e *Loader) Load(data_file string) bool {
 		south_rex, _ := regexp.Compile("\\ssouth=[A-Za-z\\-]+")
 		west_rex, _ := regexp.Compile("\\swest=[A-Za-z\\-]+")
 
-		c_Name := strings.TrimSpace(name_rex.FindString(line))
-		c_North := strings.TrimSpace(north_rex.FindString(line))
-		c_East := strings.TrimSpace(east_rex.FindString(line))
-		c_South := strings.TrimSpace(south_rex.FindString(line))
-		c_West := strings.TrimSpace(west_rex.FindString(line))
+		c_name := strings.TrimSpace(name_rex.FindString(line))
+		c_north := strings.TrimSpace(north_rex.FindString(line))
+		c_east := strings.TrimSpace(east_rex.FindString(line))
+		c_south := strings.TrimSpace(south_rex.FindString(line))
+		c_west := strings.TrimSpace(west_rex.FindString(line))
 
-		// e.g. cNorth = "north=city"
-		// If statement will change so cNorth = "city"
+		// e.g. c_north = "north=city"
+		// If statement will change so c_north = "city"
 
-		if c_North != "" {
-			c_North = strings.Split(c_North, "=")[1]
+		if c_north != "" {
+			c_north = strings.Split(c_north, "=")[1]
 		}
-		if c_East != "" {
-			c_East = strings.Split(c_East, "=")[1]
+		if c_east != "" {
+			c_east = strings.Split(c_east, "=")[1]
 		}
-		if c_South != "" {
-			c_South = strings.Split(c_South, "=")[1]
+		if c_south != "" {
+			c_south = strings.Split(c_south, "=")[1]
 		}
-		if c_West != "" {
-			c_West = strings.Split(c_West, "=")[1]
+		if c_west != "" {
+			c_west = strings.Split(c_west, "=")[1]
 		}
 
 		c := City {
-			Name: c_Name,
+			Name: c_name,
 			Health: 1,
 			Max_Health: 1,
 			Min_Health: 1,
-			North: c_North,
-			East: c_East,
-			South: c_South,
-			West: c_West,
+			North: c_north,
+			East: c_east,
+			South: c_south,
+			West: c_west,
 		}
 
 		e.Cities = append(e.Cities, c)
@@ -112,28 +112,28 @@ func (e *Loader) Load(data_file string) bool {
 	for i := range e.Cities {
 		if e.Cities[i].Loaded_Linked_Data { continue }
 
-		x_City, found := e.Search_City(e.Cities[i].North)
+		x_city, found := e.Search_City(e.Cities[i].North)
 
 		if found {
-			e.Cities[i].North_City_Data = x_City
+			e.Cities[i].North_City_Data = x_city
 		}
 		
-		x_City, found = e.Search_City(e.Cities[i].East)
+		x_city, found = e.Search_City(e.Cities[i].East)
 
 		if found {
-			e.Cities[i].East_City_Data = x_City
+			e.Cities[i].East_City_Data = x_city
 		}
 		
-		x_City, found = e.Search_City(e.Cities[i].South)
+		x_city, found = e.Search_City(e.Cities[i].South)
 
 		if found {
-			e.Cities[i].South_City_Data = x_City
+			e.Cities[i].South_City_Data = x_city
 		}
 
-		x_City, found = e.Search_City(e.Cities[i].West)
+		x_city, found = e.Search_City(e.Cities[i].West)
 
 		if found {
-			e.Cities[i].West_City_Data = x_City
+			e.Cities[i].West_City_Data = x_city
 		}
 
 		e.Cities[i].Loaded_Linked_Data = true
