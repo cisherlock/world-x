@@ -34,8 +34,8 @@ It takes time to create monsters. The more you add the longer you will have to w
 
 
 ##### Stuck Monster
-Monsters can get stuck. For example: a single monster may be trapped between 2 connected cities with no way paths leading in or out.
-The monster will run between the two cities until it reaches the maximum move count of 10,000, at which point the monster will die from exhaustion.
+Monsters can get stuck. For example: a single monster may be trapped between 2 connected cities with no paths leading in or out.
+The monster will run between the two cities until it reaches the maximum move count of 10,000 - at which point the monster will die from exhaustion.
 
 
 ##### End of Program
