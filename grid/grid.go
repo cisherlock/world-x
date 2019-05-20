@@ -22,12 +22,10 @@ type Grid struct {
 func (e Grid) Search_City(city_name string) (*city.City, bool) {
 
 	if city_name != "" {
-
 		for i := range e.Cities {
 			if e.Cities[i].Name == city_name {
 				return &e.Cities[i], true
 				break
-
 			}
 
 		}
