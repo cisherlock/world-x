@@ -185,9 +185,10 @@ func (e Grid) Play() {
 		}
 
 		var number_to_move int = 0
-		number_to_move = get_random_number(1, len(e.Get_Available_Monsters()), []int{})		// Select a random number of monsters to move this turn
+		var available_monsters []int = e.Get_Available_Monsters()
+		number_to_move = get_random_number(1, len(available_monsters), []int{})		// Select a random number of monsters to move this turn
 
-		e.move_monsters(number_to_move)
+		e.move_monsters(number_to_move, available_monsters)
 		e.fight_check()
 	}
 	
@@ -237,15 +238,14 @@ func (e *Grid) fight_check() {
 	//fmt.Println(m)
 }
 
-func (e *Grid) move_monsters(number_to_move int) {
+func (e *Grid) move_monsters(number_to_move int, available_monsters []int) {
 
 	var m_pos int = 0
 	var monsters_moved []int
 
 	for i := 0; i < number_to_move; i++ {
-		var available_monster []int = e.Get_Available_Monsters()
-		var r_num int = get_random_number(1, len(available_monster), monsters_moved) - 1	// Get a random available monster
-		m_pos = available_monster[r_num]
+		var r_num int = get_random_number(1, len(available_monsters), monsters_moved) - 1	// Get a random available monster
+		m_pos = available_monsters[r_num]
 		monsters_moved = append(monsters_moved, m_pos)
 		
 		if  e.Monsters[m_pos].Moves >= e.Max_Monster_Moves {
