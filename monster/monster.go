@@ -18,10 +18,7 @@ type Monster struct {
 
 func (e Monster) Alive() bool {
 
-	fmt.Println("test branch")
 	return (e.Health >= e.Min_Health)
-
-	// test comment came after
 
 }
 
