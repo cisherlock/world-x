@@ -11,6 +11,7 @@ import (
 func main() {
 
 	setup_and_run()
+	fmt.Println("branchtest")
 
 }
 
