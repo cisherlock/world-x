@@ -42,4 +42,4 @@ The monster will run between the two cities until it reaches the maximum move co
 At the end of the program a map is given of the remaining cities.
 
 ## Author
-Craig Sherlock [@nightofcode](https://twitter.com/nightofcode)
+Craig Sherlock
